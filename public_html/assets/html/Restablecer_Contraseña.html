@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer Contraseña</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Agrega tu archivo de estilos -->
+    <style>
+        body {
+            background-color: #fcf4ec; /* Color pastel de fondo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #fcf4ec; /* Mismo color que el fondo */
+            color: #333;
+            border: 1px solid #333;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #f8e8dc; /* Un tono más oscuro para el hover */
+            color: #000;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-center a {
+            color: #fcf4ec; /* Mismo color que el fondo */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .text-center a:hover {
+            color: #f8e8dc; /* Un tono más oscuro en hover */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sección de restablecimiento de contraseña -->
+    <section id="reset-password-section">
+        <div class="container">
+            <h2>Restablecer Contraseña</h2>
+            <form action="/reset-password" method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="new-password" class="form-label">Nueva Contraseña</label>
+                    <input type="password" id="new-password" name="new-password" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirm-password" class="form-label">Confirmar Nueva Contraseña</label>
+                    <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Restablecer Contraseña</button>
+            </form>
+            <div class="text-center mt-3">
+                <p><a href="login.html">Volver al inicio de sesión</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>FoodSaver - Cliente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <style>
+        body {
+            background-color: #fcf4ec;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            background: #ffffff;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            text-align: center;
+            color: #444;
+        }
+        .btn-primary {
+            background-color: #a67c52;
+            border-color: #8c6239;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #8c6239;
+        }
+        #map {
+            height: 400px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #ffffff;
+            border-top: 2px solid #f0e6dc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-light bg-white border-bottom">
+        <a class="navbar-brand" href="#">FoodSaver</a>
+        <!-- Opción de cerrar sesión (logout) -->
+        <button class="btn btn-outline-danger" onclick="window.location.href='./login.html'">Salir</button>
+    </nav>
+    
+
+    <div class="container">
+        
+        <!-- Perfil del Cliente -->
+        <h2>📌 Información del Cliente</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Nombre:</h4>
+                <p>Juan Pérez</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Email:</h4>
+                <p>juan.perez@example.com</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Cédula:</h4>
+                <p>123456789</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Ciudad:</h4>
+                <p>Bogotá</p>
+            </div>
+        </div>
+
+        <!-- Mapa de puntos de recolección -->
+        <h3>📍 Puntos de Recolección</h3>
+        <div id="map"></div>
+
+        <!-- Tabla con recolecciones asignadas -->
+        <h3>📋 Tus Recolecciones Asignadas</h3>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Ubicación</th>
+                    <th>Comida</th>
+                    <th>Cantidad</th>
+                    <th>Fecha y Hora</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cra 16 #48-66</td>
+                    <td>Arroz con Pollo</td>
+                    <td>3 porciones</td>
+                    <td>Hoy, 5:00 PM</td>
+                    <td><span class="badge badge-warning">Pendiente</span></td>
+                </tr>
+                <tr>
+                    <td>Calle 45 #10-25</td>
+                    <td>Ensalada de frutas</td>
+                    <td>5 porciones</td>
+                    <td>Mañana, 12:00 PM</td>
+                    <td><span class="badge badge-success">Confirmado</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Historial de recolecciones -->
+        <h3>📜 Historial de Recolecciones</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Ubicación</th>
+                    <th>Comida</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>25 Mar 2025</td>
+                    <td>Cra 10 #30-12</td>
+                    <td>Sopa de verduras</td>
+                    <td>2 porciones</td>
+                </tr>
+                <tr>
+                    <td>20 Mar 2025</td>
+                    <td>Calle 22 #15-10</td>
+                    <td>Pasta con salsa</td>
+                    <td>4 porciones</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Formulario PQRS -->
+        <h3>📩 PQRS - Enviar una Sugerencia o Reclamo</h3>
+        <form>
+            <div class="form-group">
+                <label for="pqrs-type">Tipo de PQRS:</label>
+                <select class="form-control" id="pqrs-type">
+                    <option>Petición</option>
+                    <option>Queja</option>
+                    <option>Reclamo</option>
+                    <option>Sugerencia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pqrs-description">Descripción:</label>
+                <textarea class="form-control" id="pqrs-description" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Enviar PQRS</button>
+        </form>
+
+        <!-- Formulario de satisfacción -->
+        <h3>⭐ Formulario de Satisfacción</h3>
+        <form>
+            <div class="form-group">
+                <label for="satisfaction">¿Cómo calificaría la experiencia de recolección?</label>
+                <select class="form-control" id="satisfaction">
+                    <option>Excelente</option>
+                    <option>Bueno</option>
+                    <option>Regular</option>
+                    <option>Malo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comentarios adicionales:</label>
+                <textarea class="form-control" id="comments" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Enviar Evaluación</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FoodSaver. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para el mapa -->
+    <script>
+        var map = L.map('map').setView([4.60971, -74.08175], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        var puntos = [
+            { coords: [4.62861, -74.06417], nombre: "Cra 16 #48-66", comida: "Arroz con Pollo", cantidad: "3 porciones" },
+            { coords: [4.65783, -74.09389], nombre: "Calle 45 #10-25", comida: "Ensalada de frutas", cantidad: "5 porciones" }
+        ];
+
+        puntos.forEach(function(punto) {
+            L.marker(punto.coords).addTo(map)
+                .bindPopup(`<b>${punto.nombre}</b><br>${punto.comida} - ${punto.cantidad}`);
+        });
+    </script>
+
+</body>
+</html>

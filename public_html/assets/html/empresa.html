@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>FoodSaver - Empresas</title>
+    <link rel="stylesheet" href="https://r.mobirisesite.com/1352170/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://r.mobirisesite.com/1352170/assets/theme/css/style.css">
+    
+    <style>
+        body {
+            background-color: #fcf4ec;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 2px solid #f0e6dc;
+        }
+        .container {
+            max-width: 900px;
+            background: #ffffff;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #444;
+        }
+        .btn-primary {
+            background-color: #fcf4ec;
+            border-color: #f0e6dc;
+            color: #333;
+        }
+        .btn-primary:hover {
+            background-color: #f0e6dc;
+        }
+        .map-container {
+            height: 400px;
+            margin-top: 30px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: #ffffff;
+            border-top: 2px solid #f0e6dc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-white border-bottom">
+        <a class="navbar-brand" href="#">FoodSaver</a>
+        <!-- Opción de cerrar sesión (logout) -->
+        <button class="btn btn-outline-danger" onclick="window.location.href='./login.html'">Salir</button>
+    </nav>
+
+    <div class="container">
+        <h2>Panel de Empresa</h2>
+        
+        <!-- Información de la empresa -->
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Empresa:</h4>
+                <p>Supermercado El Buen Sabor</p>
+            </div>
+            <div class="col-md-6">
+                <h4>NIT:</h4>
+                <p>900123456-7</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Persona de Contacto:</h4>
+                <p>Laura Gómez</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Email:</h4>
+                <p>laura.gomez@elbuen.com</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Teléfono:</h4>
+                <p>+57 300 123 4567</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Ciudad:</h4>
+                <p>Bogotá</p>
+            </div>
+        </div>
+
+        <!-- Formulario de Donación -->
+        <h3>Registrar Nueva Donación</h3>
+        <form>
+            <div class="form-group">
+                <label for="tipo">Tipo de Alimento:</label>
+                <select class="form-control" id="tipo">
+                    <option>Frutas y Verduras</option>
+                    <option>Lácteos</option>
+                    <option>Panadería</option>
+                    <option>Enlatados</option>
+                    <option>Otros</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad (Kg):</label>
+                <input type="number" class="form-control" id="cantidad">
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha de Disponibilidad:</label>
+                <input type="date" class="form-control" id="fecha">
+            </div>
+            <div class="form-group">
+                <label for="ubicacion">Ubicación de Recolección:</label>
+                <input type="text" class="form-control" id="ubicacion" placeholder="Ej: Calle 45 #12-34, Bogotá">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Registrar Donación</button>
+        </form>
+
+        <!-- Historial de Donaciones -->
+        <h3 class="mt-4">Historial de Donaciones</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Alimento</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>28/03/2025</td>
+                    <td>Panadería</td>
+                    <td>20 Kg</td>
+                    <td class="text-success">Entregado</td>
+                </tr>
+                <tr>
+                    <td>15/03/2025</td>
+                    <td>Frutas y Verduras</td>
+                    <td>50 Kg</td>
+                    <td class="text-warning">Pendiente</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Generación de Certificados -->
+        <h3 class="mt-4">Generar Certificado de Donación</h3>
+        <button class="btn btn-success w-100">Descargar Certificado</button>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FoodSaver. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador - FoodSaver</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1100px;
+            background-color: white;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            background-color: #f1f1f1;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .section {
+            margin-top: 40px;
+        }
+        .response-section {
+            background-color: #f1f1f1;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .stat-box {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-white border-bottom">
+        <a class="navbar-brand" href="#">FoodSaver</a>
+        <!-- Opción de cerrar sesión (logout) -->
+        <button class="btn btn-outline-danger" onclick="window.location.href='./login.html'">Salir</button>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center">Panel de Administración - FoodSaver</h2>
+
+        <!-- Dashboard -->
+        <div class="dashboard-stats">
+            <div class="stat-box">
+                <h4>Usuarios Registrados</h4>
+                <p>120</p>
+            </div>
+            <div class="stat-box">
+                <h4>Recolecciones Hoy</h4>
+                <p>25</p>
+            </div>
+            <div class="stat-box">
+                <h4>PQRS Pendientes</h4>
+                <p>5</p>
+            </div>
+            <div class="stat-box">
+                <h4>Comida Revisada</h4>
+                <p>80%</p>
+            </div>
+        </div>
+
+        <!-- Gestión de Usuarios -->
+        <div class="section">
+            <h3>Gestión de Usuarios</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cédula</th>
+                        <th>Correo Electrónico</th>
+                        <th>Ciudad</th>
+                        <th>Teléfono</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>123456789</td>
+                        <td>juan.perez@example.com</td>
+                        <td>Bogotá</td>
+                        <td>3123456789</td>
+                        <td><button class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ana Gómez</td>
+                        <td>987654321</td>
+                        <td>ana.gomez@example.com</td>
+                        <td>Medellín</td>
+                        <td>3156789456</td>
+                        <td><button class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Gestión de Recolecciones -->
+        <div class="section">
+            <h3>Gestión de Recolecciones</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cédula</th>
+                        <th>Correo Electrónico</th>
+                        <th>Comida Disponible</th>
+                        <th>Cantidad</th>
+                        <th>Punto de Recolección</th>
+                        <th>Resivio el alimento/th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>123456789</td>
+                        <td>juan.perez@example.com</td>
+                        <td>Arroz con Pollo</td>
+                        <td>3 porciones</td>
+                        <td>Cra 16 #48-66</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Ana Gómez</td>
+                        <td>987654321</td>
+                        <td>ana.gomez@example.com</td>
+                        <td>Ensalada de frutas</td>
+                        <td>5 porciones</td>
+                        <td>Calle 45 #10-25</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary btn-block">Guardar Cambios</button>
+        </div>
+
+        <!-- Gestión de PQRS -->
+        <div class="section">
+            <h3>Gestión de PQRS</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Juan Pérez</td>
+                        <td>Queja</td>
+                        <td>Pendiente</td>
+                        <td><button class="btn btn-warning">Responder</button></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Ana Gómez</td>
+                        <td>Sugerencia</td>
+                        <td>Resuelta</td>
+                        <td><button class="btn btn-secondary" disabled>Resuelta</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Responder PQRS -->
+        <div class="response-section">
+            <h3>Responder a las PQRS</h3>
+            <form>
+                <div class="form-group">
+                    <label for="pqrsId">ID de la PQRS:</label>
+                    <input type="text" class="form-control" id="pqrsId" placeholder="Ingrese el ID de la PQRS">
+                </div>
+                <div class="form-group">
+                    <label for="response">Respuesta:</label>
+                    <textarea class="form-control" id="response" rows="4" placeholder="Escriba su respuesta aquí..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar Respuesta</button>
+            </form>
+        </div>
+
+    </div>
+    <script>
+        var map = L.map('map').setView([4.60971, -74.08175], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        var puntos = [
+            { coords: [4.62861, -74.06417], nombre: "Cra 16 #48-66", comida: "Arroz con Pollo", cantidad: "3 porciones" },
+            { coords: [4.65783, -74.09389], nombre: "Calle 45 #10-25", comida: "Ensalada de frutas", cantidad: "5 porciones" }
+        ];
+
+        puntos.forEach(function(punto) {
+            L.marker(punto.coords).addTo(map)
+                .bindPopup(`<b>${punto.nombre}</b><br>${punto.comida} - ${punto.cantidad}`);
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
